@@ -16,7 +16,7 @@ def rain_event_in_months():
                         date = row[0].split('-')
                         rain_months.append(date[1])
 
-    print(rain_months)
+    return rain_months
 
 
 rain_event_in_months()
