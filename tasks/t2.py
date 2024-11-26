@@ -1,18 +1,13 @@
-from utils import read_file
-from constants import months
+from utils import get_file_contents_by_year
 
 
-def find_minimumm_temperature(year):
+def get_minimum_temperature(year):
     max_value = float('-inf')
-    for month in months:
-        file_path = 'weatherfiles/Murree_weather_'+str(year)+'_'+month+'.txt'
-        file_content = read_file(file_path)
-        data = file_content[1:]
-        for row in data:
-            if row[1] != "" and max_value < float(row[1]):
-                max_value = float(row[1])
-
+    data=get_file_contents_by_year(year)
+    for row in data:
+        if row[1] != "" and max_value < float(row[1]):
+            max_value = float(row[1])
     return max_value
 
 
-find_minimumm_temperature(2011)
+get_minimum_temperature(2011)
