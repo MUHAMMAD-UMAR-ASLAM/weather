@@ -16,7 +16,7 @@ def get_file_content(file_path):
 def get_file_contents_by_year(year):
     files = []
     for month in MONTHS:
-        file_path = 'weatherfiles/Murree_weather_' + str(year)+ '_'+month+'.txt'
+        file_path = 'weatherfiles/Murree_weather_' + str(year)+ '_' + month + '.txt'
         file_content = get_file_content(file_path)
         if file_content:
             files.append(file_content)
