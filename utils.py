@@ -1,5 +1,5 @@
 import csv
-from constants import  months
+from constants import  MONTHS
 
 def get_file_content(file_path):
     try:
@@ -8,28 +8,28 @@ def get_file_content(file_path):
             rows = []
             for row in reader:
                 rows.append(row)
-            return rows
+            return rows[1:]
     except FileNotFoundError:
         return None
 
 
 def get_file_contents_by_year(year):
     files = []
-    for month in months:
+    for month in MONTHS:
         file_path = 'weatherfiles/Murree_weather_' + str(year)+ '_'+month+'.txt'
         file_content = get_file_content(file_path)
         if file_content:
-            files.append(file_content[1:])
+            files.append(file_content)
     return  files
 
 
 def get_all_files_contents():
     files = []
     for year in range(2004, 2017, 1):
-        for month in months:
+        for month in MONTHS:
             file_path = 'weatherfiles/Murree_weather_' + \
                         str(year) + '_' + month + '.txt'
             file_content = get_file_content(file_path)
             if file_content:
-                files.append(file_content[1:])
+                files.append(file_content)
     return files
